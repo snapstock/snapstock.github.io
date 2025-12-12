@@ -109,7 +109,7 @@ export default function Home() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4" id="features">
               <div className="p-4 rounded-lg border border-slate-800 bg-slate-900 shadow-[0_0_40px_-25px_rgba(34,211,238,0.8)]">
                 <h4 className="font-semibold">Match Day Ready</h4>
-                <p className="text-sm text-slate-300 mt-2">Snap a bin, instantly see what’s low, and auto-generate a refill list before queuing.</p>
+                <p className="text-sm text-slate-300 mt-2">Snap a bin, instantly see what&apos;s low, and auto-generate a refill list before queuing.</p>
               </div>
               <div className="p-4 rounded-lg border border-slate-800 bg-slate-950">
                 <h4 className="font-semibold">STEM-Friendly Ops</h4>
