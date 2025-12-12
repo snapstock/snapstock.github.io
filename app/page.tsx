@@ -71,7 +71,7 @@ export default function Home() {
               Never lose track of bolts, batteries, or bumpers again.
             </h1>
             <p className="mt-4 text-lg text-slate-300">
-              SnapStock lets your pit crew snap a photo of any tote or shelf and instantly see counts for screws, motors, pneumatics, and wiring. Keep your robot legal, your BOM clean, and your drive team calm.
+              SnapStock lets your pit crew snap a photo of any tote or shelf and instantly see counts for screws, motors, pneumatics, and wiring. Keep your robot legal, your BOM clean, and your team calm.
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
