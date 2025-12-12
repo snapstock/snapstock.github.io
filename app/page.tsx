@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { createClient } from "./utils/supabase/client";
 
 export default function Home() {
@@ -23,7 +22,7 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full min-h-screen flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-black text-slate-100">
+    <main className="w-full min-h-screen flex flex-col bg-linear-to-br from-slate-950 via-slate-900 to-black text-slate-100">
       <header className="flex items-center justify-between py-6 max-w-6xl mx-auto w-full">
         <div className="flex items-center gap-3">
           <div className="rounded-md bg-cyan-500 text-slate-950 px-3 py-1 font-semibold uppercase tracking-wide">SnapStock</div>
@@ -36,7 +35,7 @@ export default function Home() {
           <a href="#contact" className="text-sm text-slate-300 hover:text-white">Contact</a>
 
           <a
-            href="mailto:sid@thefossrant.com?subject=SnapStock%20for%20FIRST%20Robotics"
+            href="mailto:sid@thefossrant.com?subject=SnapStock%20Demo%20Request"
             className="text-sm px-3 py-2 rounded-md border border-cyan-500/50 hover:bg-cyan-500/10"
             aria-label="Request demo"
           >
@@ -65,7 +64,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="flex-grow flex items-center justify-center px-6 py-12">
+      <section className="grow flex items-center justify-center px-6 py-12">
         <div className="max-w-5xl w-full grid gap-8 lg:grid-cols-2 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
@@ -95,7 +94,7 @@ export default function Home() {
               </form>
 
               <a
-                href="mailto:hello@snapstock.com?subject=FIRST%20Robotics%20Demo"
+                href="mailto:sid@thefossrant.com?subject=SnapStock%20Demo%20Request"
                 className="inline-flex items-center justify-center px-5 py-3 border border-cyan-500/50 rounded-md text-sm hover:bg-cyan-500/10"
                 aria-label="Request demo"
               >
@@ -128,8 +127,8 @@ export default function Home() {
             <ul className="mt-4 space-y-3 text-sm text-slate-200">
               <li>• Photo-based bin scanning tuned for FRC hardware sizes</li>
               <li>• Battery board tracking with charge cycles and flags</li>
-              <li>• Auto-export BOM PDFs and CSVs for inspection and Chairman’s docs</li>
-              <li>• Lightweight offline mode for venues with spotty arena Wi‑Fi</li>
+              <li>• Auto-export BOM PDFs and CSVs for inspection and Chairman&apos;s docs</li>
+              <li>• Lightweight offline mode for venues with spotty arena Wi-Fi</li>
             </ul>
 
             <div className="mt-6">
@@ -151,6 +150,63 @@ export default function Home() {
               Built with input from student captains and mentors. Perfect for regionals, champs, and off-season events.
             </div>
           </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="max-w-6xl mx-auto px-6 py-12" id="product">
+          <h2 className="text-3xl font-extrabold text-center">See SnapStock in action</h2>
+          <p className="mt-8 text-lg text-slate-300 text-center">
+            SnapStock is designed to make inventory management effortless for FIRST Robotics teams. 
+            Stay tuned for a detailed walkthrough of how SnapStock can help your team stay organized 
+            and competition-ready.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div className="max-w-6xl mx-auto px-6 py-12" id="features">
+          <h2 className="text-3xl font-extrabold text-center">Use cases</h2>
+          <div className="mt-8 grid gap-8 md:grid-cols-3">
+            <div className="p-6 rounded-lg border border-slate-800 bg-slate-900">
+              <h3 className="font-semibold text-lg">Pre-Competition Prep</h3>
+              <p className="mt-2 text-slate-300">Quickly scan your pit bins to identify low-stock items and generate a refill list before heading to the competition.</p>
+            </div>
+            <div className="p-6 rounded-lg border border-slate-800 bg-slate-950">
+              <h3 className="font-semibold text-lg">Inspection Ready</h3>
+              <p className="mt-2 text-slate-300">Easily export your bill of materials in PDF or CSV format to ensure your robot meets all inspection requirements.</p>
+            </div>
+            <div className="p-6 rounded-lg border border-slate-800 bg-slate-900">
+              <h3 className="font-semibold text-lg">Off-Season Organization</h3>
+              <p className="mt-2 text-slate-300">Keep track of practice robot parts, spare drivetrains, and outreach kits without the hassle of spreadsheets.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="max-w-6xl mx-auto px-6 py-12 text-center" id="contact">
+          <h2 className="text-3xl font-extrabold">Ready to streamline your team&apos;s inventory management?</h2>
+          <p className="mt-4 text-lg text-slate-300">
+            Join the SnapStock waitlist today and be among the first to experience hassle-free parts tracking designed specifically for FIRST Robotics teams.
+          </p>
+          <form onSubmit={submitWaitlist} className="mt-6 flex flex-col sm:flex-row justify-center gap-3" aria-label="Join waitlist">
+            <label htmlFor="footer-email" className="sr-only">Email</label>
+            <input
+              id="footer-email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              required
+              className="px-4 py-3 rounded-md border border-slate-700 bg-slate-900 text-slate-100 focus:border-cyan-500 focus:outline-none w-full sm:w-auto"
+            />
+            <button
+              type="submit"
+              className="px-6 py-3 bg-cyan-500 text-slate-950 rounded-md font-semibold hover:bg-cyan-400"
+            >
+              Join Waitlist
+            </button>
+          </form>
         </div>
       </section>
 
