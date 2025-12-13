@@ -139,7 +139,7 @@ export default function Home() {
                 See how it works
               </a>
               <a
-                href="mailto:hello@snapstock.com?subject=FIRST%20Robotics%20Intro"
+                href="mailto:sid@thefossrant.com?subject=FIRST%20Robotics%20Intro"
                 className="ml-3 text-sm text-cyan-300 hover:underline"
               >
                 Ask about pricing
@@ -216,7 +216,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <a href="/terms" className="text-sm text-slate-300 hover:underline">Terms</a>
             <a href="/privacy" className="text-sm text-slate-300 hover:underline">Privacy</a>
-            <a href="mailto:hello@snapstock.com" id="contact" className="text-sm text-slate-300 hover:underline">Contact</a>
+            <a href="mailto:sid@thefossrant.com" id="contact" className="text-sm text-slate-300 hover:underline">Contact</a>
           </div>
         </div>
       </footer>
