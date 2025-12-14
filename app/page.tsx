@@ -50,7 +50,7 @@ export default function Home() {
             <input
               name="email"
               type="email"
-              placeholder="you@frc-team.com"
+              placeholder="Your email"
               required
               className="px-3 py-2 rounded-md border border-slate-700 bg-slate-900 text-sm text-slate-100 focus:border-cyan-500 focus:outline-none"
             />
@@ -81,7 +81,7 @@ export default function Home() {
                   id="hero-email"
                   name="email"
                   type="email"
-                  placeholder="mentor@team.org"
+                  placeholder="Your email"
                   required
                   className="flex-1 min-w-0 px-3 py-3 rounded-md border border-slate-700 bg-slate-900 text-slate-100 focus:border-cyan-500 focus:outline-none"
                 />
@@ -196,7 +196,7 @@ export default function Home() {
               id="footer-email"
               name="email"
               type="email"
-              placeholder="Enter your email"
+              placeholder="Your email"
               required
               className="px-4 py-3 rounded-md border border-slate-700 bg-slate-900 text-slate-100 focus:border-cyan-500 focus:outline-none w-full sm:w-auto"
             />
