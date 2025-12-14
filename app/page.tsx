@@ -1,8 +1,10 @@
 "use client";
 import { createClient } from "./utils/supabase/client";
+import { useState } from "react";
 
 export default function Home() {
   const supabase = createClient();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const submitWaitlist = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,45 +25,98 @@ export default function Home() {
 
   return (
     <main className="w-full min-h-screen flex flex-col bg-linear-to-br from-slate-950 via-slate-900 to-black text-slate-100">
-      <header className="flex items-center justify-between py-6 max-w-6xl mx-auto w-full">
-        <div className="flex items-center gap-3">
-          <div className="rounded-md bg-cyan-500 text-slate-950 px-3 py-1 font-semibold uppercase tracking-wide">SnapStock</div>
-          <span className="text-sm text-slate-300 hidden sm:inline">Parts tracking built for FIRST Robotics teams</span>
+      <header className="py-6 max-w-6xl mx-auto w-full">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="rounded-md bg-cyan-500 text-slate-950 px-3 py-1 font-semibold uppercase tracking-wide">SnapStock</div>
+            <span className="text-sm text-slate-300 hidden sm:inline">Parts tracking built for FIRST Robotics teams</span>
+          </div>
+
+          {/* Desktop nav */}
+          <nav className="hidden sm:flex items-center gap-4">
+            <a href="#product" className="text-sm text-slate-300 hover:text-white">Product</a>
+            <a href="#features" className="text-sm text-slate-300 hover:text-white">Use cases</a>
+            <a href="#contact" className="text-sm text-slate-300 hover:text-white">Contact</a>
+
+            <a
+              href="mailto:sid@thefossrant.com?subject=SnapStock%20Demo%20Request"
+              className="text-sm px-3 py-2 rounded-md border border-cyan-500/50 hover:bg-cyan-500/10"
+              aria-label="Request demo"
+            >
+              Get a demo
+            </a>
+
+            <form
+              onSubmit={submitWaitlist}
+              className="hidden sm:flex items-center gap-2"
+              aria-label="Join waitlist"
+            >
+              <input
+                name="email"
+                type="email"
+                placeholder="Your email"
+                required
+                className="px-3 py-2 rounded-md border border-slate-700 bg-slate-900 text-sm text-slate-100 focus:border-cyan-500 focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 bg-cyan-500 text-slate-950 rounded-md text-sm font-semibold hover:bg-cyan-400"
+              >
+                Join Waitlist
+              </button>
+            </form>
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            className="sm:hidden inline-flex items-center justify-center rounded-md p-2 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800/50"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(o => !o)}
+          >
+            {/* Hamburger / X icon using simple spans */}
+            <span className="sr-only">Toggle navigation</span>
+            {mobileOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 9.94l5.47-4.47a.75.75 0 1 1 1.06 1.06L13.06 11l5.47 4.47a.75.75 0 1 1-1.06 1.06L12 12.06l-5.47 4.47a.75.75 0 1 1-1.06-1.06L10.94 11 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd"/></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm.75 4.5a.75.75 0 0 0 0 1.5h16.5a.75.75 0 0 0 0-1.5H3.75Z" clipRule="evenodd"/></svg>
+            )}
+          </button>
         </div>
 
-        <nav className="flex items-center gap-4">
-          <a href="#product" className="text-sm text-slate-300 hover:text-white">Product</a>
-          <a href="#features" className="text-sm text-slate-300 hover:text-white">Use cases</a>
-          <a href="#contact" className="text-sm text-slate-300 hover:text-white">Contact</a>
-
-          <a
-            href="mailto:sid@thefossrant.com?subject=SnapStock%20Demo%20Request"
-            className="text-sm px-3 py-2 rounded-md border border-cyan-500/50 hover:bg-cyan-500/10"
-            aria-label="Request demo"
-          >
-            Get a demo
-          </a>
-
-          <form
-            onSubmit={submitWaitlist}
-            className="hidden sm:flex items-center gap-2"
-            aria-label="Join waitlist"
-          >
-            <input
-              name="email"
-              type="email"
-              placeholder="Your email"
-              required
-              className="px-3 py-2 rounded-md border border-slate-700 bg-slate-900 text-sm text-slate-100 focus:border-cyan-500 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="px-4 py-2 bg-cyan-500 text-slate-950 rounded-md text-sm font-semibold hover:bg-cyan-400"
+        {/* Mobile menu panel */}
+        {mobileOpen && (
+          <div className="sm:hidden mt-4 space-y-4 rounded-lg border border-slate-800 bg-slate-900 p-4">
+            <div className="flex flex-col gap-3">
+              <a href="#product" className="text-sm text-slate-200 hover:text-white">Product</a>
+              <a href="#features" className="text-sm text-slate-200 hover:text-white">Use cases</a>
+              <a href="#contact" className="text-sm text-slate-200 hover:text-white">Contact</a>
+            </div>
+            <a
+              href="mailto:sid@thefossrant.com?subject=SnapStock%20Demo%20Request"
+              className="inline-flex w-full items-center justify-center text-sm px-3 py-2 rounded-md border border-cyan-500/50 hover:bg-cyan-500/10"
+              aria-label="Request demo"
             >
-              Join Waitlist
-            </button>
-          </form>
-        </nav>
+              Get a demo
+            </a>
+            <form onSubmit={submitWaitlist} className="flex items-center gap-2" aria-label="Join waitlist">
+              <input
+                name="email"
+                type="email"
+                placeholder="Your email"
+                required
+                className="flex-1 px-3 py-2 rounded-md border border-slate-700 bg-slate-900 text-sm text-slate-100 focus:border-cyan-500 focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 bg-cyan-500 text-slate-950 rounded-md text-sm font-semibold hover:bg-cyan-400"
+              >
+                Join
+              </button>
+            </form>
+          </div>
+        )}
       </header>
 
       <section className="grow flex items-center justify-center px-6 py-12">
