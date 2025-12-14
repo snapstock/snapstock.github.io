@@ -11,40 +11,47 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
   exit 1
 fi
 
-# Build
-pnpm build  # or npm run build
+# Build (your pnpm build succeeded ✅)
+pnpm build
 
 if [ ! -d "$BUILD_DIR" ]; then
   echo "No '$BUILD_DIR' found after build."
   exit 1
 fi
 
-# Remove old branch/worktree if exists
-git worktree remove /tmp/static-build 2>/dev/null || true
-git branch -D "$BRANCH_NAME" 2>/dev/null || true
+# Clean up old worktree/branch SAFELY
+if git worktree list | grep -q "/tmp/static-build"; then
+  git worktree remove /tmp/static-build
+fi
 
-# Create fresh worktree from current commit
+# Delete branch only if it exists and we're not on it
+if git show-ref --verify --quiet refs/heads/"$BRANCH_NAME" && [ "$(git rev-parse --abbrev-ref HEAD)" != "$BRANCH_NAME" ]; then
+  git branch -D "$BRANCH_NAME"
+fi
+
+# Create FRESH worktree from CURRENT commit
+git checkout --orphan temp-static
+git rm -rf .
+git commit --allow-empty -m "temp: base for static"
+git branch -D temp-static
+
 git worktree add /tmp/static-build "$BRANCH_NAME"
 
-# Clear worktree but PRESERVE .git
+# Switch to worktree and populate
 cd /tmp/static-build
-git rm -rf . 2>/dev/null || true
-git commit --allow-empty -m "Clear for static build" || true
 
-# Sync ONLY static files (exclude .git and source)
-rsync -av --delete \
-  --exclude='.git' \
-  --exclude='*.ts*' --exclude='*.tsx' --exclude='*.js*' --exclude='*.jsx' \
-  --exclude='*.json' --exclude='*.yaml' --exclude='*.yml' \
-  --exclude='*.css' --exclude='*.scss' --exclude='package*' \
-  --exclude='next.config*' --exclude='tsconfig*' --exclude='.env*' \
-  --exclude='*.md' --exclude='*.sh' --exclude='.gitignore' \
-  "$BUILD_DIR/" ./
+# Clear everything but keep .git intact
+find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + 2>/dev/null || true
 
-# Commit & push
+# Copy ONLY static files
+rsync -av --delete "$BUILD_DIR/." ./ \
+  --exclude='.git' --prune-empty-dirs
+
+# Commit & force push
 git add .
-git commit -m "Static build $(date -Iseconds)" || echo "No changes."
-git push "$REMOTE_NAME" "$BRANCH_NAME" --force
+git commit -m "Static build $(date -Iseconds) [skip ci]"
+git push "$REMOTE_NAME" "$BRANCH_NAME" --force-with-lease
 
-echo "✅ Static branch '$BRANCH_NAME' pushed to $REMOTE_NAME"
-cd -  # back to original dir
+echo "✅ Static branch '$BRANCH_NAME' pushed successfully!"
+cd -
+git worktree prune  # cleanup
