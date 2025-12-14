@@ -1,40 +1,50 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BRANCH_NAME="static-build"     # or pass in as $1
-BUILD_DIR="out"                # where Next.js exports static files
-REMOTE_NAME="origin"           # change if needed
+BRANCH_NAME="${1:-static-build}"
+BUILD_DIR="out"
+REMOTE_NAME="origin"
 
-# Ensure clean worktree
+# Clean check
 if ! git diff --quiet || ! git diff --cached --quiet; then
-  echo "Working tree not clean. Commit or stash changes first."
+  echo "Working tree not clean. Commit/stash first."
   exit 1
 fi
 
-# Build static site
-npm run build                  # or: pnpm build / yarn build
-# If you use pages router + export, use instead:
-# npm run build && npm run export
+# Build
+pnpm build  # or npm run build
 
 if [ ! -d "$BUILD_DIR" ]; then
-  echo "Build directory '$BUILD_DIR' not found."
+  echo "No '$BUILD_DIR' found after build."
   exit 1
 fi
 
-# Create a temporary worktree for the static branch
-git worktree add /tmp/static-build "$BRANCH_NAME" 2>/dev/null || {
-  git branch "$BRANCH_NAME" || true
-  git worktree add /tmp/static-build "$BRANCH_NAME"
-}
+# Remove old branch/worktree if exists
+git worktree remove /tmp/static-build 2>/dev/null || true
+git branch -D "$BRANCH_NAME" 2>/dev/null || true
 
-# Sync build output into the worktree
-rsync -av --delete "$BUILD_DIR"/ /tmp/static-build/
+# Create fresh worktree from current commit
+git worktree add /tmp/static-build "$BRANCH_NAME"
 
+# Clear worktree but PRESERVE .git
 cd /tmp/static-build
+git rm -rf . 2>/dev/null || true
+git commit --allow-empty -m "Clear for static build" || true
 
-# Commit and push
+# Sync ONLY static files (exclude .git and source)
+rsync -av --delete \
+  --exclude='.git' \
+  --exclude='*.ts*' --exclude='*.tsx' --exclude='*.js*' --exclude='*.jsx' \
+  --exclude='*.json' --exclude='*.yaml' --exclude='*.yml' \
+  --exclude='*.css' --exclude='*.scss' --exclude='package*' \
+  --exclude='next.config*' --exclude='tsconfig*' --exclude='.env*' \
+  --exclude='*.md' --exclude='*.sh' --exclude='.gitignore' \
+  "$BUILD_DIR/" ./
+
+# Commit & push
 git add .
-git commit -m "Update static build $(date -Iseconds)" || echo "No changes to commit."
-git push "$REMOTE_NAME" "$BRANCH_NAME"
+git commit -m "Static build $(date -Iseconds)" || echo "No changes."
+git push "$REMOTE_NAME" "$BRANCH_NAME" --force
 
-echo "Static site branch '$BRANCH_NAME' updated and pushed."
+echo "✅ Static branch '$BRANCH_NAME' pushed to $REMOTE_NAME"
+cd -  # back to original dir
