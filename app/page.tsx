@@ -54,7 +54,7 @@ export default function Home() {
               <input
                 name="email"
                 type="email"
-                placeholder="Your email"
+                placeholder="mentor@team.org"
                 required
                 className="px-3 py-2 rounded-md border border-slate-700 bg-slate-900 text-sm text-slate-100 focus:border-cyan-500 focus:outline-none"
               />
