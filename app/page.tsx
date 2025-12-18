@@ -104,7 +104,7 @@ export default function Home() {
               <input
                 name="email"
                 type="email"
-                placeholder="Your email"
+                placeholder="mentor@team.org"
                 required
                 className="flex-1 px-3 py-2 rounded-md border border-slate-700 bg-slate-900 text-sm text-slate-100 focus:border-cyan-500 focus:outline-none"
               />
@@ -136,7 +136,7 @@ export default function Home() {
                   id="hero-email"
                   name="email"
                   type="email"
-                  placeholder="Your email"
+                  placeholder="mentor@team.org"
                   required
                   className="flex-1 min-w-0 px-3 py-3 rounded-md border border-slate-700 bg-slate-900 text-slate-100 focus:border-cyan-500 focus:outline-none"
                 />
@@ -251,7 +251,7 @@ export default function Home() {
               id="footer-email"
               name="email"
               type="email"
-              placeholder="Your email"
+              placeholder="mentor@team.org"
               required
               className="px-4 py-3 rounded-md border border-slate-700 bg-slate-900 text-slate-100 focus:border-cyan-500 focus:outline-none w-full sm:w-auto"
             />
