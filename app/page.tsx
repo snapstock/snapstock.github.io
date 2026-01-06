@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { createClient } from "./utils/supabase/client";
 import { useState } from "react";
 
@@ -28,7 +29,7 @@ export default function Home() {
       <header className="py-6 max-w-6xl mx-auto w-full">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="rounded-md bg-cyan-500 text-slate-950 px-3 py-1 font-semibold uppercase tracking-wide">SnapStock</div>
+            <Image src="/logo.svg" alt="SnapStock" width={40} height={40} />
             <span className="text-sm text-slate-300 hidden sm:inline">Parts tracking built for FIRST Robotics teams</span>
           </div>
 
