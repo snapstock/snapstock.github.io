@@ -40,11 +40,11 @@ export default function Home() {
             <a href="#contact" className="text-sm text-slate-300 hover:text-white">Contact</a>
 
             <a
-              href="mailto:sid@thefossrant.com?subject=SnapStock%20Demo%20Request"
+              href="https://beta.snapstock.io/login"
               className="text-sm px-3 py-2 rounded-md border border-cyan-500/50 hover:bg-cyan-500/10"
               aria-label="Request demo"
             >
-              Get a demo
+              Login
             </a>
 
             <form
