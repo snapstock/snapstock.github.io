@@ -16,7 +16,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "SnapStock",
-  description: "Parts tracking built for FIRST Robotics teams",
+  description: "Parts tracking built for competitive robotics teams",
 };
 
 export default function RootLayout({

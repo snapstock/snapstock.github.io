@@ -30,7 +30,7 @@ export default function Home() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image src="/logo.svg" alt="SnapStock" width={40} height={40} />
-            <span className="text-sm text-slate-300 hidden sm:inline">Parts tracking built for FIRST Robotics teams</span>
+            <span className="text-sm text-slate-300 hidden sm:inline">Parts tracking built for competitive robotics teams</span>
           </div>
 
           {/* Desktop nav */}
@@ -127,7 +127,7 @@ export default function Home() {
               Never lose track of bolts, batteries, or bumpers again.
             </h1>
             <p className="mt-4 text-lg text-slate-300">
-              SnapStock lets your pit crew snap a photo of any tote or shelf and instantly see counts for screws, motors, pneumatics, and wiring. Keep your robot legal, your BOM clean, and your team calm.
+              SnapStock lets your team snap a photo of any tote or shelf and instantly see counts for screws, motors, pneumatics, and wiring. Keep your robot legal, your BOM clean, and your team calm.
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
@@ -159,7 +159,7 @@ export default function Home() {
             </div>
 
             <p className="mt-3 text-xs text-slate-400">
-              Early-access teams get onboarding help, pit-crew playbooks, and tailored part libraries for FRC & FTC hardware.
+              Early-access teams get onboarding help, pit-crew playbooks, and tailored part libraries for robotics hardware.
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4" id="features">
@@ -181,9 +181,8 @@ export default function Home() {
           <div className="rounded-lg border border-slate-800 p-6 bg-slate-950/70 shadow-lg">
             <h3 className="font-semibold text-lg text-slate-100">What teams get</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-200">
-              <li>• Photo-based bin scanning tuned for FRC hardware sizes</li>
-              <li>• Battery board tracking with charge cycles and flags</li>
-              <li>• Auto-export BOM PDFs and CSVs for inspection and Chairman&apos;s docs</li>
+              <li>• Photo-based bin scanning tuned for robotics hardware sizes</li>
+              <li>• Battery tracking with charge cycles and flags</li>
               <li>• Lightweight offline mode for venues with spotty arena Wi-Fi</li>
             </ul>
 
@@ -195,7 +194,7 @@ export default function Home() {
                 See how it works
               </a>
               <a
-                href="mailto:sid@thefossrant.com?subject=FIRST%20Robotics%20Intro"
+                href="mailto:sid@thefossrant.com?subject=SnapStock%20Pricing%20Inquiry"
                 className="ml-3 text-sm text-cyan-300 hover:underline"
               >
                 Ask about pricing
@@ -213,7 +212,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-12" id="product">
           <h2 className="text-3xl font-extrabold text-center">See SnapStock in action</h2>
           <p className="mt-8 text-lg text-slate-300 text-center">
-            SnapStock is designed to make inventory management effortless for FIRST Robotics teams. 
+            SnapStock is designed to make inventory management effortless for competitive robotics teams. 
             Stay tuned for a detailed walkthrough of how SnapStock can help your team stay organized 
             and competition-ready.
           </p>
@@ -244,7 +243,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-12 text-center" id="contact">
           <h2 className="text-3xl font-extrabold">Ready to streamline your team&apos;s inventory management?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Join the SnapStock waitlist today and be among the first to experience hassle-free parts tracking designed specifically for FIRST Robotics teams.
+            Join the SnapStock waitlist today and be among the first to experience hassle-free parts tracking designed specifically for competitive robotics teams.
           </p>
           <form onSubmit={submitWaitlist} className="mt-6 flex flex-col sm:flex-row justify-center gap-3" aria-label="Join waitlist">
             <label htmlFor="footer-email" className="sr-only">Email</label>
