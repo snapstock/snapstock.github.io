@@ -30,19 +30,23 @@ export default function Home() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image src="/logo.svg" alt="SnapStock" width={40} height={40} />
-            <span className="text-sm text-slate-300 hidden sm:inline">Parts tracking built for competitive robotics teams</span>
+            {/* <span className="text-sm text-slate-300 hidden sm:inline">Parts tracking built for competitive robotics teams</span> */}
+            <h1 className="text-2xl font-extrabold leading-tight">
+              SnapStock
+            </h1>
           </div>
 
           {/* Desktop nav */}
           <nav className="hidden sm:flex items-center gap-4">
             <a href="#product" className="text-sm text-slate-300 hover:text-white">Product</a>
             <a href="#features" className="text-sm text-slate-300 hover:text-white">Use cases</a>
+            <a href="#pricing" className="text-sm text-slate-300 hover:text-white">Pricing</a>
             <a href="#contact" className="text-sm text-slate-300 hover:text-white">Contact</a>
 
             <a
               href="https://beta.snapstock.io/login"
               className="text-sm px-3 py-2 rounded-md border border-cyan-500/50 hover:bg-cyan-500/10"
-              aria-label="Request demo"
+              aria-label="Login"
             >
               Login
             </a>
@@ -92,6 +96,7 @@ export default function Home() {
             <div className="flex flex-col gap-3">
               <a href="#product" className="text-sm text-slate-200 hover:text-white">Product</a>
               <a href="#features" className="text-sm text-slate-200 hover:text-white">Use cases</a>
+              <a href="#pricing" className="text-sm text-slate-200 hover:text-white">Pricing</a>
               <a href="#contact" className="text-sm text-slate-200 hover:text-white">Contact</a>
             </div>
             <a
@@ -234,6 +239,48 @@ export default function Home() {
             <div className="p-6 rounded-lg border border-slate-800 bg-slate-900">
               <h3 className="font-semibold text-lg">Off-Season Organization</h3>
               <p className="mt-2 text-slate-300">Keep track of practice robot parts, spare drivetrains, and outreach kits without the hassle of spreadsheets.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="max-w-6xl mx-auto px-6 py-12" id="pricing">
+          <h2 className="text-3xl font-extrabold text-center">Pricing</h2>
+          <div className="mt-8 grid gap-8 md:grid-cols-4">
+            <div className="p-6 rounded-lg border border-slate-800 bg-slate-900">
+              <h3 className="font-semibold text-lg">Free</h3>
+              <h4 className="font-semibold text-md">$0 / month</h4>
+              <div className="flex flex-row gap-4">
+                <p className="text-sm text-slate-300 mt-2">• 500 photo scans / month</p>
+              </div>
+            </div>
+            <div className="p-6 rounded-lg border border-slate-800 bg-slate-950">
+              <h3 className="font-semibold text-lg">Basic</h3>
+              <h4 className="font-semibold text-md">$8 / month</h4>
+              <div className="flex flex-row gap-4">
+                <p className="text-sm text-slate-300 mt-2">• 2,000 photo scans / month</p>
+              </div>
+            </div>
+            <div className="p-6 rounded-lg border border-slate-800 bg-slate-900">
+              <h3 className="font-semibold text-lg">Pro</h3>
+              <h4 className="font-semibold text-md">$18 / month</h4>
+              <div className="flex flex-row gap-4">
+                <p className="text-sm text-slate-300 mt-2">• 7,500 photo scans / month</p>
+              </div>
+              <div className="flex flex-row gap-4">
+                <p className="text-sm text-slate-300 mt-2">• Battery management</p>
+              </div>
+            </div>
+            <div className="p-6 rounded-lg border border-slate-800 bg-slate-900">
+              <h3 className="font-semibold text-lg">Ultimate</h3>
+              <h4 className="font-semibold text-md">$35 / month</h4>
+              <div className="flex flex-row gap-4">
+                <p className="text-sm text-slate-300 mt-2">• 20,000 photo scans / month</p>
+              </div>
+              <div className="flex flex-row gap-4">
+                <p className="text-sm text-slate-300 mt-2">• Battery management</p>
+              </div>
             </div>
           </div>
         </div>
