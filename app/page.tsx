@@ -40,7 +40,7 @@ export default function Home() {
           <nav className="hidden sm:flex items-center gap-4">
             <a href="#product" className="text-sm text-slate-300 hover:text-white">Product</a>
             <a href="#features" className="text-sm text-slate-300 hover:text-white">Use cases</a>
-            <a href="#pricing" className="text-sm text-slate-300 hover:text-white">Pricing</a>
+            {/* <a href="#pricing" className="text-sm text-slate-300 hover:text-white">Pricing</a> */}
             <a href="#contact" className="text-sm text-slate-300 hover:text-white">Contact</a>
 
             <a
@@ -51,25 +51,13 @@ export default function Home() {
               Login
             </a>
 
-            <form
-              onSubmit={submitWaitlist}
-              className="hidden sm:flex items-center gap-2"
-              aria-label="Join waitlist"
-            >
-              <input
-                name="email"
-                type="email"
-                placeholder="mentor@team.org"
-                required
-                className="px-3 py-2 rounded-md border border-slate-700 bg-slate-900 text-sm text-slate-100 focus:border-cyan-500 focus:outline-none"
-              />
-              <button
-                type="submit"
+            <a
+                aria-label="Sign Up"
+                href="https://beta.snapstock.io/signup"
                 className="px-4 py-2 bg-cyan-500 text-slate-950 rounded-md text-sm font-semibold hover:bg-cyan-400"
               >
-                Join Waitlist
-              </button>
-            </form>
+                Sign Up
+              </a>
           </nav>
 
           {/* Mobile toggle */}
@@ -96,31 +84,23 @@ export default function Home() {
             <div className="flex flex-col gap-3">
               <a href="#product" className="text-sm text-slate-200 hover:text-white">Product</a>
               <a href="#features" className="text-sm text-slate-200 hover:text-white">Use cases</a>
-              <a href="#pricing" className="text-sm text-slate-200 hover:text-white">Pricing</a>
+              {/* <a href="#pricing" className="text-sm text-slate-200 hover:text-white">Pricing</a> */}
               <a href="#contact" className="text-sm text-slate-200 hover:text-white">Contact</a>
             </div>
             <a
-              href="mailto:sid@thefossrant.com?subject=SnapStock%20Demo%20Request"
+              href="https://beta.snapstock.io/login"
               className="inline-flex w-full items-center justify-center text-sm px-3 py-2 rounded-md border border-cyan-500/50 hover:bg-cyan-500/10"
-              aria-label="Request demo"
+              aria-label="Login"
             >
-              Get a demo
+              Login
             </a>
-            <form onSubmit={submitWaitlist} className="flex items-center gap-2" aria-label="Join waitlist">
-              <input
-                name="email"
-                type="email"
-                placeholder="mentor@team.org"
-                required
-                className="flex-1 px-3 py-2 rounded-md border border-slate-700 bg-slate-900 text-sm text-slate-100 focus:border-cyan-500 focus:outline-none"
-              />
-              <button
-                type="submit"
+            <a
+                href="https://beta.snapstock.io/signup"
+              aria-label="Sign Up"
                 className="px-4 py-2 bg-cyan-500 text-slate-950 rounded-md text-sm font-semibold hover:bg-cyan-400"
               >
-                Join
-              </button>
-            </form>
+                Sign Up
+              </a>
           </div>
         )}
       </header>
@@ -136,31 +116,21 @@ export default function Home() {
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <form onSubmit={submitWaitlist} className="flex w-full sm:w-auto gap-2">
-                <label htmlFor="hero-email" className="sr-only">Email</label>
-                <input
-                  id="hero-email"
-                  name="email"
-                  type="email"
-                  placeholder="mentor@team.org"
-                  required
-                  className="flex-1 min-w-0 px-3 py-3 rounded-md border border-slate-700 bg-slate-900 text-slate-100 focus:border-cyan-500 focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="px-5 py-3 bg-cyan-500 text-slate-950 rounded-md font-semibold hover:bg-cyan-400"
-                >
-                  Join Waitlist
-                </button>
-              </form>
-
               <a
+                  href="https://beta.snapstock.io/signup"
+                  className="px-5 py-3 bg-cyan-500 text-slate-950 rounded-md font-semibold hover:bg-cyan-400"
+                  aria-label="Get Started For Free"
+                >
+                  Get Started For Free
+                </a>
+
+              {/* <a
                 href="mailto:sid@thefossrant.com?subject=SnapStock%20Demo%20Request"
                 className="inline-flex items-center justify-center px-5 py-3 border border-cyan-500/50 rounded-md text-sm hover:bg-cyan-500/10"
                 aria-label="Request demo"
               >
                 Get a demo
-              </a>
+              </a> */}
             </div>
 
             <p className="mt-3 text-xs text-slate-400">
@@ -244,7 +214,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      {/* <section>
         <div className="max-w-6xl mx-auto px-6 py-12" id="pricing">
           <h2 className="text-3xl font-extrabold text-center">Pricing</h2>
           <div className="mt-8 grid gap-8 md:grid-cols-4">
@@ -284,30 +254,31 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section>
         <div className="max-w-6xl mx-auto px-6 py-12 text-center" id="contact">
           <h2 className="text-3xl font-extrabold">Ready to streamline your team&apos;s inventory management?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Join the SnapStock waitlist today and be among the first to experience hassle-free parts tracking designed specifically for competitive robotics teams.
+            Join SnapStock today and be among the first to experience hassle-free parts tracking designed specifically for competitive robotics teams.
           </p>
           <form onSubmit={submitWaitlist} className="mt-6 flex flex-col sm:flex-row justify-center gap-3" aria-label="Join waitlist">
-            <label htmlFor="footer-email" className="sr-only">Email</label>
-            <input
+            {/* <label htmlFor="footer-email" className="sr-only">Email</label> */}
+            {/* <input
               id="footer-email"
               name="email"
               type="email"
               placeholder="mentor@team.org"
               required
               className="px-4 py-3 rounded-md border border-slate-700 bg-slate-900 text-slate-100 focus:border-cyan-500 focus:outline-none w-full sm:w-auto"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-cyan-500 text-slate-950 rounded-md font-semibold hover:bg-cyan-400"
-            >
-              Join Waitlist
-            </button>
+            /> */}
+            <a
+                  href="https://beta.snapstock.io/signup"
+                  className="px-5 py-3 bg-cyan-500 text-slate-950 rounded-md font-semibold hover:bg-cyan-400"
+                  aria-label="Get Started For Free"
+                >
+                  Get Started For Free
+                </a>
           </form>
         </div>
       </section>
